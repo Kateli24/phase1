@@ -6,7 +6,6 @@
 package dao;
 
 import domain.Customer;
-import domain.Product;
 import domain.Sale;
 import domain.Summary;
 import java.util.Collection;

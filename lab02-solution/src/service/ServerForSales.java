@@ -8,7 +8,6 @@ package service;
 import dao.CustomerDAO;
 import dao.SaleDAO;
 import domain.Customer;
-import domain.Sale;
 import java.io.IOException;
 import java.util.concurrent.CompletableFuture;
 import org.jooby.Jooby;
