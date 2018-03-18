@@ -47,5 +47,5 @@ dependencies {
 
 ext {
 	mainClass = 'service.ServerForSales'
-        //mainClass = 'service.Service'
+        
 }
