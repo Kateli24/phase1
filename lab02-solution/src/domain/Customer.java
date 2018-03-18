@@ -7,6 +7,7 @@ package domain;
 
 import java.util.Collection;
 import java.util.HashSet;
+import java.util.TreeSet;
 
 /**
  *
@@ -17,7 +18,7 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String email;
-    private Collection<Sale> sales = new HashSet<>();
+    private Collection<Sale> sales = new TreeSet<>();
     private Summary summary;
 
     public Customer(String id, String firstName, String lastName, String email) {
