@@ -33,7 +33,7 @@ public class CustomerDAO {
      *
      * @param customer The customer being added.
      */
-    public void addItem(Customer customer) {
+    public void addAccount(Customer customer) {
         customers.put(customer.getUserName(), customer);
     }
     
@@ -42,7 +42,7 @@ public class CustomerDAO {
      *
      * @return All accounts ordered by user name.
      */
-    public List<Customer> getCatalogue() {
+    public List<Customer> getAccounts() {
         return new ArrayList(customers.values());
     }
 
@@ -52,7 +52,7 @@ public class CustomerDAO {
      * @param username The user name of the customer to replace.
      * @param newCustomer The product to replace it with.
      */
-    public void updateCustomer(String username, Customer newCustomer) {
+    public void updateAccount(String username, Customer newCustomer) {
         customers.put(username, newCustomer);
     }
 
