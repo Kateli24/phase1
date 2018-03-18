@@ -19,7 +19,7 @@ public class CustomerResource extends Jooby {
 
     public CustomerResource(CustomerDAO dao) {
 
-        path("/api/sales/sale", () -> {
+        path("/api/customers/customer", () -> {
 
             /**
              * Get all sales for a specific customer.
@@ -32,13 +32,11 @@ public class CustomerResource extends Jooby {
             get("/:id", (req) -> {
 
                 String id = req.param("id").value();
-
                 if (dao.exists(id)) {
                     return dao.getSalesById(id);
                 } else {
                     throw new Err(Status.NOT_FOUND, "No customer matches that ID");
                 }
-
             });
             
             /**
@@ -60,6 +58,7 @@ public class CustomerResource extends Jooby {
                 }
 
             });
+            
         }).produces(MediaType.json).consumes(MediaType.json);
     }
 
