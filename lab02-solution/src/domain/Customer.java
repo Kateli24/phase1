@@ -18,6 +18,7 @@ public class Customer {
     private String lastName;
     private String email;
     private Collection<Sale> sales = new HashSet<>();
+    private Summary summary;
 
     public Customer(String id, String firstName, String lastName, String email) {
         this.id = id;
@@ -35,6 +36,14 @@ public class Customer {
     }
     
     public Customer(){}
+
+    public Summary getSummary() {
+        return summary;
+    }
+
+    public void setSummary(Summary summary) {
+        this.summary = summary;
+    }
 
     public String getId() {
         return id;
@@ -70,8 +79,10 @@ public class Customer {
 
     @Override
     public String toString() {
-        return "Customer{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + ", sales=" + sales + '}';
+        return "Customer{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + '}';
     }
+
+   
 
    
     
