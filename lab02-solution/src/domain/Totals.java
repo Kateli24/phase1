@@ -15,11 +15,10 @@ public class Totals {
     private double totalPayment;
     private Sale sale;
 
-    public Totals(double totalPrice, double totalTax, double totalPayment, Sale sale) {
+    public Totals(double totalPrice, double totalTax, double totalPayment) {
         this.totalPrice = totalPrice;
         this.totalTax = totalTax;
         this.totalPayment = totalPayment;
-        this.sale = sale;
     }
 
     public double getTotalPrice() {
