@@ -1,0 +1,108 @@
+swagger: '2.0'
+info:
+  version: 0.0.0
+  title: service API
+basePath: /
+tags:
+  - name: Customers
+schemes:
+  - http
+paths:
+  '/api/customers/account/{username}':
+    put:
+      tags:
+        - Customers
+      summary: Update an existing account
+      description: ''
+      operationId: putCustomers
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - name: username
+          in: path
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: The new details for the item.
+          required: true
+          schema:
+            $ref: '#/definitions/Customer'
+      responses:
+        '204':
+          description: >-
+            <code>204</code> for a successful operation. <code>404</code> if the
+            ID does not match an existing product. <code>409</code> if user has
+            attempted to change the ID (which is not allowed).
+        '404':
+          description: Not Found
+        '409':
+          description: Conflict
+  /api/customers:
+    get:
+      tags:
+        - Customers
+      summary: |-
+        A client needs to be able to get all registered customer
+         accounts
+      description: ''
+      operationId: getCustomers
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters: []
+      responses:
+        '200':
+          description: <code>200</code> with the customers in the collection.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Customer'
+    post:
+      tags:
+        - Customers
+      summary: A client needs to be able to create a new customer account
+      description: ''
+      operationId: postCustomers
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: body
+          description: The account to add to the collection.
+          required: true
+          schema:
+            $ref: '#/definitions/Customer'
+      responses:
+        '201':
+          description: >-
+            <code>201</code> with the customer's details (including the URI) if
+            successful or <code>422</code> if a customer already exists with the
+            same ID.
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Customer'
+        '422':
+          description: Unprocessable Entity
+definitions:
+  Customer:
+    type: object
+    properties:
+      userName:
+        type: string
+      firstName:
+        type: string
+      lastName:
+        type: string
+      email:
+        type: string
+      group:
+        type: string
+      uri:
+        type: string
