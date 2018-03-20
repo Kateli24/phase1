@@ -6,14 +6,8 @@
 package dao;
 
 import domain.Customer;
-import domain.Product;
 import domain.Sale;
-import domain.SaleItem;
 import domain.Totals;
-import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
