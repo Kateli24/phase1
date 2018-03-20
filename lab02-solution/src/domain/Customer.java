@@ -5,19 +5,16 @@
  */
 package domain;
 
-import java.util.Collection;
-import java.util.TreeSet;
-
 /**
  *
  * @author jiaweili
  */
 public class Customer {
+
     private String id;
     private String firstName;
     private String lastName;
     private String email;
-    //private Collection<Sale> sales = new TreeSet<>();
     private Summary summary;
 
     public Customer(String id, String firstName, String lastName, String email) {
@@ -27,15 +24,8 @@ public class Customer {
         this.email = email;
     }
 
-//    public Collection<Sale> getSales() {
-//        return sales;
-//    }
-//
-//    public void setSales(Collection<Sale> sales) {
-//        this.sales = sales;
-//    }
-    
-    public Customer(){}
+    public Customer() {
+    }
 
     public Summary getSummary() {
         return summary;
@@ -82,9 +72,4 @@ public class Customer {
         return "Customer{" + "id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email + '}';
     }
 
-   
-
-   
-    
-    
 }
