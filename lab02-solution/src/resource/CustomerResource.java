@@ -19,7 +19,7 @@ public class CustomerResource extends Jooby {
 
     public CustomerResource(SaleDAO dao) {
 
-        path("/api/customers/customer", () -> {
+        path("/api/sales/customer", () -> {
 
             /**
              * Get all sales for a specific customer.
@@ -47,7 +47,7 @@ public class CustomerResource extends Jooby {
              * in the body, or a <code>404</code> if the ID does not match an
              * existing customer.
              */
-            get("/:id", (req) -> {
+            get("/:id/summary", (req) -> {
 
                 String id = req.param("id").value();
 

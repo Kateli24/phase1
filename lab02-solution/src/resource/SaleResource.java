@@ -6,6 +6,7 @@
 package resource;
 
 import dao.SaleDAO;
+import domain.Customer;
 import domain.Sale;
 import org.jooby.Jooby;
 import org.jooby.MediaType;
@@ -31,15 +32,17 @@ public class SaleResource extends Jooby{
 			 */
 			post((req, rsp) -> {
 				Sale sale = req.body(Sale.class);
+                                Customer customer = req.body(Customer.class);
+                                String id = customer.getId();
 
 				// construct the URI for this sale
-				String uri = "http://" + req.hostname() + ":" + req.port() + "" + req.path() + "/sale/" + sale.getId();
+				String uri = "http://" + req.hostname() + ":" + req.port() + "" + req.path() + "/customer/" + id + "/sale/" + sale.getId();
 
 				// tell the sale about its URI
 				sale.setUri(uri);
 
 				// store the sale
-				dao.addSale(sale);
+				dao.addSale(id,sale);
 
 				// return a response containing the sale
 				rsp.status(Status.CREATED).send(sale);
