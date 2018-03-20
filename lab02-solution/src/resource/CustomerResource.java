@@ -5,7 +5,7 @@
  */
 package resource;
 
-import dao.CustomerDAO;
+import dao.SaleDAO;
 import org.jooby.Err;
 import org.jooby.Jooby;
 import org.jooby.MediaType;
@@ -17,7 +17,7 @@ import org.jooby.Status;
  */
 public class CustomerResource extends Jooby {
 
-    public CustomerResource(CustomerDAO dao) {
+    public CustomerResource(SaleDAO dao) {
 
         path("/api/customers/customer", () -> {
 
@@ -32,7 +32,7 @@ public class CustomerResource extends Jooby {
             get("/:id", (req) -> {
 
                 String id = req.param("id").value();
-                if (dao.exists(id)) {
+                if (dao.ifCustomerExists(id)) {
                     return dao.getSalesById(id);
                 } else {
                     throw new Err(Status.NOT_FOUND, "No customer matches that ID");
@@ -51,7 +51,7 @@ public class CustomerResource extends Jooby {
 
                 String id = req.param("id").value();
 
-                if (dao.exists(id)) {
+                if (dao.ifCustomerExists(id)) {
                     return dao.getSummaryById(id);
                 } else {
                     throw new Err(Status.NOT_FOUND, "No customer matches that ID");

@@ -5,7 +5,6 @@
  */
 package service;
 
-import dao.CustomerDAO;
 import dao.SaleDAO;
 import domain.Customer;
 import java.io.IOException;
@@ -25,11 +24,11 @@ public class ServerForSales extends Jooby {
     public ServerForSales() {
 
         SaleDAO saleDAO = new SaleDAO();
-        CustomerDAO customerDAO = new CustomerDAO();
+        
 
         use(new Gzon());
         use(new SaleResource(saleDAO));
-        use(new CustomerResource(customerDAO));
+        use(new CustomerResource(saleDAO));
 
         use(new ApiTool()
                 .modify(r -> r.pattern().equals("/api/customers"), route -> {
