@@ -10,27 +10,17 @@ package domain;
  * @author jiaweili
  */
 public class SaleItem {
+
     private String productId;
     private double quantity;
     private double price;
-    private Sale sale;
 
-    public SaleItem(String productId, double quantity, double price, Sale sale) {
+    public SaleItem(String productId, double quantity, double price) {
         this.productId = productId;
         this.quantity = quantity;
         this.price = price;
-        this.sale = sale;
-    }
 
-    public Sale getSale() {
-        return sale;
     }
-
-    public void setSale(Sale sale) {
-        this.sale = sale;
-    }
-    
-    
 
     public String getProductId() {
         return productId;
@@ -58,10 +48,7 @@ public class SaleItem {
 
     @Override
     public String toString() {
-        return "SaleItem{" + "productId=" + productId + ", quantity=" + quantity + ", price=" + price + ", sale=" + sale + '}';
+        return "SaleItem{" + "productId=" + productId + ", quantity=" + quantity + ", price=" + price + '}';
     }
 
-    
-    
-    
 }

@@ -54,7 +54,7 @@ public class ServerForSales extends Jooby {
         });
 
         System.in.read();
-        serverForSales.stop();
+        System.exit(0);
     }
 
 }

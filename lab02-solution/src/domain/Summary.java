@@ -10,11 +10,11 @@ package domain;
  * @author jiaweili
  */
 public class Summary {
+
     private Integer numberOfSales;
     private double totalPayment;
     private String group;
     private String uri;
-    private Customer customer;
 
     public Summary(Integer numberOfSales, double totalPayment, String group, String uri) {
         this.numberOfSales = numberOfSales;
@@ -39,10 +39,6 @@ public class Summary {
         return uri;
     }
 
-    public Customer getCustomer() {
-        return customer;
-    }
-
     public void setNumberOfSales(Integer numberOfSales) {
         this.numberOfSales = numberOfSales;
     }
@@ -59,18 +55,9 @@ public class Summary {
         this.uri = uri;
     }
 
-    public void setCustomer(Customer customer) {
-        this.customer = customer;
-    }
-
     @Override
     public String toString() {
         return "Summary{" + "numberOfSales=" + numberOfSales + ", totalPayment=" + totalPayment + ", group=" + group + ", uri=" + uri + '}';
     }
-    
-    
-    
-    
-    
-    
+
 }

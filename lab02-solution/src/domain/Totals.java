@@ -10,10 +10,10 @@ package domain;
  * @author jiaweili
  */
 public class Totals {
+
     private double totalPrice;
     private double totalTax;
     private double totalPayment;
-    private Sale sale;
 
     public Totals(double totalPrice, double totalTax, double totalPayment) {
         this.totalPrice = totalPrice;
@@ -33,10 +33,6 @@ public class Totals {
         return totalPayment;
     }
 
-    public Sale getSale() {
-        return sale;
-    }
-
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
     }
@@ -49,16 +45,9 @@ public class Totals {
         this.totalPayment = totalPayment;
     }
 
-    public void setSale(Sale sale) {
-        this.sale = sale;
-    }
-
     @Override
     public String toString() {
-        return "Totals{" + "totalPrice=" + totalPrice + ", totalTax=" + totalTax + ", totalPayment=" + totalPayment + ", sale=" + sale + '}';
+        return "Totals{" + "totalPrice=" + totalPrice + ", totalTax=" + totalTax + ", totalPayment=" + totalPayment + '}';
     }
-    
-    
-    
-    
+
 }
