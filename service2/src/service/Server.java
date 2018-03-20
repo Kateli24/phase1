@@ -19,42 +19,44 @@ import resource.CustomersResource;
  *
  * @author jiaweili
  */
-public class Server extends Jooby{
+public class Server extends Jooby {
+
     public Server() {
 
-		CustomerDAO dao = new CustomerDAO();
+        CustomerDAO dao = new CustomerDAO();
 
-		use(new Gzon());
-		use(new CustomerResource(dao));
-		use(new CustomersResource(dao));
+        use(new Gzon());
+        use(new CustomerResource(dao));
+        use(new CustomersResource(dao));
 
-		use(new ApiTool()
-				.modify(r -> r.pattern().equals("/api/customers"), route -> {
+        use(new ApiTool()
+                .modify(r -> r.pattern().equals("/api/customers"), route -> {
 
-					// Fix response type since Swagger couldn't guess
-					route.response().type(new Customer[0].getClass());
+                    // Fix response type since Swagger couldn't guess
+                    route.response().type(new Customer[0].getClass());
 
-				})
-				.swagger());
+                })
+                .swagger());
 
-	}
+    }
 
-	public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException {
 
-		Server server = new Server();
-                
-                server.port(8082);
+        Server server = new Server();
 
-		CompletableFuture.runAsync(() -> {
-			server.start();
-		});
+        server.port(8082);
 
-		server.onStarted(() -> {
-			System.out.println("\nPress Enter to stop service.");
-		});
+        CompletableFuture.runAsync(() -> {
+            server.start();
+        });
 
-		System.in.read();
-		server.stop();
-	}
-    
+        server.onStarted(() -> {
+            System.out.println("\nPress Enter to stop service.");
+        });
+
+        System.in.read();
+        System.exit(0);
+
+    }
+
 }
