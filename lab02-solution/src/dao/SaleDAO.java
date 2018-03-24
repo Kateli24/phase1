@@ -5,8 +5,11 @@
  */
 package dao;
 
+import domain.Customer;
 import domain.Sale;
 import domain.Summary;
+import domain.Totals;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
@@ -18,20 +21,27 @@ import java.util.TreeSet;
  */
 public class SaleDAO {
 
-    private static final Map<String, TreeSet<Sale>> sales = new TreeMap<>();
+    private static final Map<String, ArrayList<Sale>> sales = new TreeMap<String, ArrayList<Sale>>();
     private static final Map<String,Summary> summaries = new TreeMap<>();
     
 
     /*
 	 * Some dummy data for testing
      */
-//    static {
-//        if (sales.isEmpty()) {
-//            sales.put("WD1234", new Sale("WD1234", "20100319", "api/sales/WD1234",
-//                    new Customer("01", "Kate", "Li", "kateli24@outlook.com"),
-//                    new Totals(35.5, 1.5, 37.0)));
-//        }
-//    }
+
+    public SaleDAO() {
+         ArrayList<Sale> sample = new ArrayList<Sale>();
+          Sale sale = new Sale("01", "20100319", "api/sales/customer/WD1234",
+                    new Customer("WD1234", "Kate", "Li", "kateli24@outlook.com"),
+                    new Totals(35.5, 1.5, 37.0));
+            sample.add(sale);
+            sales.put("WD1234", sample);
+        
+    }
+    
+        
+         
+    
 
     /**
      * A client needs to be able to add a new sale.
@@ -40,7 +50,7 @@ public class SaleDAO {
      * @param newSale The sale being added.
      */
     public void addSale(String customerId, Sale newSale) {
-        TreeSet<Sale> salesByCustomer = sales.get(customerId);
+        ArrayList<Sale> salesByCustomer = sales.get(customerId);
         salesByCustomer.add(newSale);
     }
 

@@ -31,7 +31,7 @@ public class ServerForSales extends Jooby {
         use(new CustomerResource(saleDAO));
 
         use(new ApiTool()
-                .modify(r -> r.pattern().equals("/api/customers"), route -> {
+                .modify(r -> r.pattern().equals("/api/sales"), route -> {
 
                     // Fix response type since Swagger couldn't guess
                     route.response().type(new Customer[0].getClass());

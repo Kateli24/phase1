@@ -27,6 +27,10 @@ public class Sale {
         this.customer = customer;
         this.totals = totals;
     }
+    
+    public Sale(){
+        
+    }
 
     public Totals getTotals() {
         return totals;

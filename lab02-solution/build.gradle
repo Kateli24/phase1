@@ -37,7 +37,7 @@ dependencies {
 	// https://mvnrepository.com/artifact/org.jooby/jooby-apitool
 	compile group: 'org.jooby', name: 'jooby-apitool', version: joobyVer
         
-        testCompile 'junit:junit:4.12'
+       testCompile 'junit:junit:4.12'
         
     
         
