@@ -28,6 +28,28 @@ public class Service {
         CustomerApi customerApi = retrofit.create(CustomerApi.class);
         CustomersApi customersApi = retrofit.create(CustomersApi.class);
         
+        
+        
+        Customer customer = new Customer();
+        customer.setUserName("Sss");
+        customer.setFirstName("sam");
+        customer.setLastName("Smith");
+        
+        customersApi.postACustomer(customer);
+       
+        
+        
+        Customer newCustomer = new Customer();
+        newCustomer.setUserName("Sss");
+        newCustomer.setGroup("VIP");
+        
+        
+
+
+        
+        customerApi.updateAnAccount("Sss", newCustomer).execute().body();
+        
+        
         List<Customer> customers = customersApi.getCustomers().execute().body();
         System.out.println(customers);
         
