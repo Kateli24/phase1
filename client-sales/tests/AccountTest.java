@@ -17,6 +17,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
+import retrofit2.Call;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -79,6 +80,7 @@ public class AccountTest {
     @Test
     public void postCustomer() throws IOException{
         customersApi.postACustomer(customer);
+        
         
       
         List<Customer> customers = customersApi.getCustomers().execute().body();
