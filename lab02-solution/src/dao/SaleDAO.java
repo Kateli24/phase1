@@ -5,10 +5,8 @@
  */
 package dao;
 
-import domain.Customer;
 import domain.Sale;
 import domain.Summary;
-import domain.Totals;
 import java.util.Collection;
 import java.util.Map;
 import java.util.TreeMap;
@@ -21,7 +19,8 @@ import java.util.TreeSet;
 public class SaleDAO {
 
     private static final Map<String, TreeSet<Sale>> sales = new TreeMap<>();
-    private static final Map<String, Customer> customers = new TreeMap<>();
+    private static final Map<String,Summary> summaries = new TreeMap<>();
+    
 
     /*
 	 * Some dummy data for testing
@@ -66,7 +65,8 @@ public class SaleDAO {
      * found.
      */
     public Summary getSummaryById(String id) {
-        return customers.get(id).getSummary();
+        return summaries.get(id);
+        
 
     }
 
@@ -77,7 +77,7 @@ public class SaleDAO {
      * @return <code>true</code> if customer exists, <code>false</code> if not.
      */
     public boolean ifCustomerExists(String id) {
-        return customers.containsKey(id);
+        return sales.containsKey(id);
     }
 
 }

@@ -15,7 +15,7 @@ public class Customer {
     private String firstName;
     private String lastName;
     private String email;
-    private Summary summary;
+    
 
     public Customer(String id, String firstName, String lastName, String email) {
         this.id = id;
@@ -27,14 +27,8 @@ public class Customer {
     public Customer() {
     }
 
-    public Summary getSummary() {
-        return summary;
-    }
-
-    public void setSummary(Summary summary) {
-        this.summary = summary;
-    }
-
+   
+    
     public String getId() {
         return id;
     }
