@@ -73,12 +73,14 @@ public class AccountTest {
     @Test
     public void getCustomers() throws IOException {
         Collection<Customer> customers = customersApi.getCustomers().execute().body();
-        assertTrue(customers.size()==2);
+        assertTrue(customers.size()==1);
     }
     
     @Test
     public void postCustomer() throws IOException{
-        customersApi.postACustomer(customer).execute().body();
+        customersApi.postACustomer(customer);
+        
+      
         List<Customer> customers = customersApi.getCustomers().execute().body();
                 System.out.print("Customers="+customers);
 
@@ -92,8 +94,8 @@ public class AccountTest {
 //                assertTrue(c.equals(customer));
 //            }
 //        }
-        
-        assertTrue("Customer is saved", customers.contains(customer));
+        System.out.println("Index=" + customers.indexOf(customer));
+        assertEquals("Customer is saved", customers.get(0));
         
 
     }

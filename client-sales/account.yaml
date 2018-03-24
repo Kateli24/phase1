@@ -74,8 +74,6 @@ paths:
             OK - Customer created.  URI of customer will be available in the "uri"
             field
           schema:
-            type: array
-            items:
               $ref: '#/definitions/Customer'
         '422':
           description: Error - Customer username already exists
