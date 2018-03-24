@@ -45,7 +45,7 @@ dependencies {
 
 swaggerSources {
     catalogue {
-        inputFile = file('account.yaml')
+        inputFile = file('customer.yaml')
         code {
             language = 'java'
             library = 'retrofit2'

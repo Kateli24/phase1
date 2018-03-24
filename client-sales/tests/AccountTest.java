@@ -28,13 +28,13 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class AccountTest {
     
      Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl("http://localhost:8082/api/")
+                .baseUrl("http://localhost:8082/api/customers/")
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
      
      CustomerApi customerApi;
      CustomersApi customersApi;
-     Customer customer = new Customer();
+     Customer customer;
     
      
     
@@ -55,8 +55,8 @@ public class AccountTest {
         customerApi = retrofit.create(CustomerApi.class);
         customersApi = retrofit.create(CustomersApi.class);
         
-        
-        customer.setUserName("Sss");
+        customer = new Customer();
+        customer.setUserName("Sssz");
         customer.setFirstName("sam");
         customer.setLastName("Smith");
         
@@ -72,8 +72,8 @@ public class AccountTest {
     
     @Test
     public void getCustomers() throws IOException {
-        Collection<Customer> customers = customersApi.getCustomers().execute().body();
-        assertTrue(customers.size()==1);
+        List<Customer> customers = customersApi.getCustomers().execute().body();
+        assertTrue(customers.size()==3);
     }
     
     @Test
